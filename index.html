@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a2f">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ffc94a'/><text x='50' y='68' text-anchor='middle' font-size='54' font-weight='bold' fill='%23111a28'>W</text></svg>">
+  <meta name="description" content="从保安到行业领航者：吴钰伟的职场逆袭文字游戏">
+  <title>逆风坐标｜吴钰伟的人生升级</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="app-shell" id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">WY</div>
+        <div>
+          <p class="eyebrow">WU YUWEI / LIFE QUEST</p>
+          <h1>逆风坐标</h1>
+        </div>
+      </div>
+      <div class="topbar-meta">
+        <div class="save-state" id="saveState"><span class="pulse-dot"></span> 自动存档</div>
+        <button class="text-button" id="restartButton" type="button" title="重新开始">重新开始</button>
+      </div>
+    </header>
+
+    <section class="roadmap" aria-label="人生阶段">
+      <div class="roadmap-line"></div>
+      <div class="roadmap-track" id="roadmapTrack"></div>
+    </section>
+
+    <main class="game-layout">
+      <section class="visual-panel" aria-label="人生场景">
+        <div class="scene-frame" id="sceneFrame"></div>
+        <div class="scene-overlay">
+          <div class="scene-location" id="sceneLocation">海星物业 · 保安亭</div>
+          <div class="scene-index" id="sceneIndex">01 / 06</div>
+        </div>
+        <div class="scene-caption">
+          <span class="caption-kicker" id="sceneKicker">毕业后的第一个月</span>
+          <strong id="sceneTitle">没有 offer 的夏天</strong>
+          <span id="sceneQuote">先把今晚熬过去，才有资格谈理想。</span>
+        </div>
+      </section>
+
+      <aside class="status-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">CURRENT STATUS</p>
+            <h2>吴钰伟的状态</h2>
+          </div>
+          <div class="level-chip" id="levelChip">LEVEL 1</div>
+        </div>
+
+        <div class="profile-strip">
+          <div class="avatar" id="avatar">伟</div>
+          <div class="profile-copy">
+            <strong>应届毕业生</strong>
+            <span>长春电子科技学院 · 计算机</span>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-block">
+            <div class="stat-label"><span>技术能力</span><strong id="techValue">14</strong></div>
+            <div class="stat-bar"><i id="techBar"></i></div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-label"><span>行业声望</span><strong id="repValue">8</strong></div>
+            <div class="stat-bar"><i id="repBar"></i></div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-label"><span>精力状态</span><strong id="energyValue">78</strong></div>
+            <div class="stat-bar"><i id="energyBar"></i></div>
+          </div>
+          <div class="stat-block money-block">
+            <div class="stat-label"><span>个人积蓄</span><strong id="moneyValue">¥2,600</strong></div>
+            <div class="stat-note" id="moneyNote">撑过毕业后三个月，仍然不太够</div>
+          </div>
+        </div>
+
+        <div class="goal-card" id="goalCard">
+          <div class="goal-topline">
+            <span>本章突破条件</span>
+            <span id="goalStatus" class="goal-status">进行中</span>
+          </div>
+          <strong id="goalText">积蓄达到 ¥9,000 · 技术达到 18</strong>
+          <p id="goalHint">每一章只有 4 次主要行动，选择会决定后面的路。</p>
+        </div>
+
+        <div class="tag-section">
+          <div class="section-label">人生标签 <span id="tagCount">0</span></div>
+          <div class="tag-list" id="tagList"><span class="empty-tag">还没有留下任何标签</span></div>
+        </div>
+      </aside>
+
+      <section class="story-panel" aria-label="剧情记录">
+        <div class="panel-heading story-heading">
+          <div>
+            <p class="eyebrow">STORY LOG</p>
+            <h2 id="storyTitle">序章：毕业即失业</h2>
+          </div>
+          <div class="chapter-chip" id="chapterChip">第 1 章</div>
+        </div>
+        <div class="story-copy" id="storyCopy">
+          毕业证还热着，招聘网站却已经学会了沉默。投出去的简历像丢进湖里的石子，连一圈像样的波纹都没有。
+        </div>
+        <div class="log-list" id="logList" aria-live="polite"></div>
+      </section>
+
+      <section class="action-panel" aria-label="本月行动">
+        <div class="panel-heading action-heading">
+          <div>
+            <p class="eyebrow">MAKE A MOVE</p>
+            <h2>这一阶段，你准备做什么？</h2>
+          </div>
+          <div class="action-counter" id="actionCounter"><strong>4</strong> 次行动机会</div>
+        </div>
+        <div class="action-grid" id="actionGrid"></div>
+        <div class="turn-tip" id="turnTip">选择任意一张行动卡。重复做同一件事，收益会逐渐变低。</div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>吴钰伟 · 人生模拟器</span>
+      <span>每一次低谷，都是坐标重新校准的机会。</span>
+    </footer>
+  </div>
+
+  <div class="overlay start-overlay" id="startScreen">
+    <div class="start-card">
+      <div class="start-art" aria-hidden="true">
+        <div class="start-sun"></div>
+        <div class="start-skyline skyline-a"></div>
+        <div class="start-skyline skyline-b"></div>
+        <div class="start-figure">
+          <span class="figure-head"></span>
+          <span class="figure-body"></span>
+          <span class="figure-bag"></span>
+        </div>
+        <div class="start-label">CHANGCHUN · START</div>
+      </div>
+      <div class="start-copy">
+        <p class="eyebrow">A STORY ABOUT NOT GIVING UP</p>
+        <h2>毕业不是终点，<br><em>低谷也不是。</em></h2>
+        <p>吴钰伟，长春电子科技学院计算机专业应届生。投了 137 份简历，面试 3 次，收到 0 个 offer。为了先活下去，他穿上了保安制服。</p>
+        <div class="start-quote">“如果暂时够不到想去的楼层，就先从一扇门站起。”</div>
+        <button class="primary-button" id="startButton" type="button">开始毕业后第一天 <span>→</span></button>
+        <p class="start-hint">无需安装，约 8 分钟完整体验。游戏会自动保存在当前浏览器。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay modal-overlay" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="关闭" hidden>×</button>
+      <p class="eyebrow" id="modalKicker">CHAPTER CLEAR</p>
+      <h2 id="modalTitle">本章结算</h2>
+      <p class="modal-body" id="modalBody"></p>
+      <div class="effect-list" id="modalEffects"></div>
+      <div class="modal-choices" id="modalChoices"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="game.js"></script>
+</body>
+</html>
+
